@@ -4,7 +4,7 @@ This individual assignment will count towards your final grade (40%). Your submi
 
 # Prerequisites
 
-We have already covered the required concepts in our lectures, labs, and mandatory assignments which you need for this portfolio. Should you be missing lectures and lab sessions, it is your own responsibility to catch up to the competence level that you are supposed to get it from the lectures and lab sessions. 
+We have already covered the required concepts in our lectures, labs, and mandatory assignments which you need for this assignment. Should you be missing lectures and lab sessions, it is your own responsibility to catch up to the competence level that you are supposed to get it from the lectures and lab sessions. 
 
 ## Overview
 
