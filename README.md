@@ -193,7 +193,7 @@ To change the RTT, replace the value of 100ms with 50ms or 200ms in line 43 of y
 
 ## Submission
 
-You must submit **your_inspera_candidateNumber_homeexam.zip**  through the Inspera exam system. Do not include your name and ID. It's going to be anonymous. You will get access to inspera before the deadline. You must add your group members on the Inspera system.
+You must submit **your_inspera_candidateNumber_homeexam.zip**  through the Inspera exam system. Do not include your name and ID. It's going to be anonymous. You will get access to inspera before the deadline.
 
 Your zip file should contain:
 
