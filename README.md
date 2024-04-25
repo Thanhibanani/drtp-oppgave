@@ -256,7 +256,7 @@ The report should not exceed 15 pages, including the list of references. The pag
 
 * Project report - `20%`
 
-### Deadline
+# Deadline
 The deadline for submitting this exam is **May 21 2024 at 12:00 (NOON)** Oslo local time.
 
 This is a HARD deadline, failure to deliver on time will result in fail in this part-exam.
