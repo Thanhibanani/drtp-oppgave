@@ -266,7 +266,7 @@ I am not going to handle any enquiries regarding medical extensions and so forth
 Follow the submission guidelines. Do not make your respository public, and *do not copy*.
 
 
-## Some example outputs
+## Suggestions
 
 I have added some example outputs below for your convenience.
 
