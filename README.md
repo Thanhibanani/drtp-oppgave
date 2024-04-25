@@ -172,9 +172,9 @@ Format of the flag fields:
 A sender initiates a three-way handshake with the receiver (similar to TCP) to establish a reliable connection. A sender first sends and empty packet with the syn flag ON and T flag ON, and set the file size = "size of the file in bytes". A server then responds with packet with SYN and ACK flags set and establishes the connection. Upon receiving syn-ack packet, a sender sends ack to the server. 
 
 
-### Reliability functions
+### Reliability function
 
-You will implement Go-Back-N (GBN()) reliability functions. 
+You will implement Go-Back-N (GBN()) reliability function. 
 
 Go-Back-N (GBN()): sender implements the Go-Back-N strategy using a fixed window size of 5 packets to transfer data. The sequence numbers represent packets, i.e. packet 1 is numbered 1, packet 2 is numbered 2 and so on. If no ACK packet is received within a given timeout (choose a default value: 500ms, use socket.settimeout() function), all packets that have not previously been acknowledged are assumed to be lost and they are retransmitted. A receiver passes on data in order and if packets arrive at the receiver in the wrong order, this indicates packet loss or reordering in the network. The DRTP receiver should in such cases not acknowledge anyting and may discard these packets.
 
