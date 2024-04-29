@@ -137,7 +137,7 @@ A server should read data in chunks of 1000 bytes. For the sake of simplcity, as
 
 
 ```
-> protocol "Sequence Number:16 bits, Acknowledgment Number: 16 bits, Flags: 16 bits , filesize = 16 bits
+> protocol "Sequence Number:16 bits, Acknowledgment Number: 16 bits, Flags: 16 bits.
 
 
 Together with the header, your application data that you will send over DRTP/UDP:
