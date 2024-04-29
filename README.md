@@ -127,7 +127,7 @@ Table below lists all the available options that you can use to invoke the serve
 
 # Details
 
-A server should read data in chunks of 994 bytes. For the sake of simplcity, assume 1 KB = 1000 Bytes, and 1 MB = 1000 KB. For each chunk (application data), a sender adds a header before it sends the data over UDP. The header length is 6 bytes and application data is 994 bytes.  A sender therefore sends 1000 bytes of data to a receiver, including the custom DRTP header. The header contains a sequence number (packet sequence number), an acknowledgment number (packet acknowledgment number), flags (only 4 bits are used for connection establishments, teardown, and acknowledgment packets). The DRTP header looks like this:
+A sender should read data in chunks of 994 bytes. For the sake of simplicity, assume 1 KB = 1000 Bytes, and 1 MB = 1000 KB. For each chunk (application data), a sender adds a header before it sends the data over UDP. The header length is 6 bytes and application data is 994 bytes.  A sender therefore sends 1000 bytes of data to a receiver, including the custom DRTP header. The header contains a sequence number (packet sequence number), an acknowledgment number (packet acknowledgment number), flags (only 4 bits are used for connection establishment, teardown, and acknowledgment packets). The DRTP header looks like this:
 
 
 ```
@@ -169,26 +169,26 @@ Format of the flag fields:
 
 ### Connection establishment and tear down
 
-A sender initiates a three-way handshake with the receiver (similar to TCP) to establish a reliable connection. A sender first sends and empty packet with the syn flag ON and T flag ON, and set the file size = "size of the file in bytes". A server then responds with packet with SYN and ACK flags set and establishes the connection. Upon receiving syn-ack packet, a sender sends ack to the server. 
+A sender initiates a three-way handshake with the receiver (similar to TCP) to establish a reliable connection. A sender first sends and empty packet with the syn flag ON. A server then responds with packet with SYN and ACK flags set and establishes the connection. Upon receiving syn-ack packet, a sender sends ack to the server. 
 
 
 ### Reliability function
 
 You will implement Go-Back-N (GBN()) reliability function. 
 
-Go-Back-N (GBN()): sender implements the Go-Back-N strategy using a fixed window size of 5 packets to transfer data. The sequence numbers represent packets, i.e. packet 1 is numbered 1, packet 2 is numbered 2 and so on. If no ACK packet is received within a given timeout (choose a default value: 500ms, use socket.settimeout() function), all packets that have not previously been acknowledged are assumed to be lost and they are retransmitted. A receiver passes on data in order and if packets arrive at the receiver in the wrong order, this indicates packet loss or reordering in the network. The DRTP receiver should in such cases not acknowledge anyting and may discard these packets.
+Go-Back-N (GBN()): sender implements the Go-Back-N strategy using a fixed window size of 3 (default case if not changed by `-w` flag) packets to transfer data. The sequence numbers represent packets, i.e. packet 1 is numbered 1, packet 2 is numbered 2 and so on. If no ACK packet is received within a given timeout (choose a default value: 500ms, use socket.settimeout() function), all packets that have not previously been acknowledged are assumed to be lost and they are retransmitted. A receiver passes on data in order and if packets arrive at the receiver in the wrong order, this indicates packet loss or reordering in the network. The DRTP receiver should in such cases not acknowledge anyting and may discard these packets.
 
 See textbook and lecture slides for more details.
 
 ## Discussion:
 
- Test your code in mininet using `simple-topo.py
+Test your code in mininet using `simple-topo.py`
 
 1. Execute the file transfer application with window sizes of 3, 5, and 10. Calculate the throughput values for each of these configurations and provide an explanation for your results. For instance, discuss why you observe an increase in throughput as you increase the window size.
 2. Modify the RTT to 50ms and 200ms. Run the file transfer application with window sizes of 3, 5, and 10. Calculate throughput values for all these scenarios and provide an explanation for your results.
 To change the RTT, replace the value of 100ms with 50ms or 200ms in line 43 of your simple-topo.py file: `net["r"].cmd("tc qdisc add dev r-eth1 root netem delay 100ms")` in your `simple-topo.py` 
 3. Use the `--discard` or `-d` flag on the server side to drop a packet, which will make the client resend it. Show how the reliable transport protocol works and how it deals with resent packets.
-4. To demonstrate how effective your code is, use tc-netem (refer to the lab manual) to simulate packet loss. To do this, modify your simple-topo.py file by commenting out line#43 `net["r"].cmd("tc qdisc add dev r-eth1 root netem delay 100ms")` and uncommenting line#44: `net["r"].cmd("tc qdisc add dev r-eth1 root netem delay 100ms loss 2%")`. Test with a loss rate of 5% as well. Include the results in your discussion section and explain what you observe.
+4. To demonstrate how effective your code is, use tc-netem (refer to the [lab manual](https://github.com/safiqul/2410/blob/main/docs/netem/mininet-tc-delay.md)) to simulate packet loss. To do this, modify your simple-topo.py file by commenting out line#43 `net["r"].cmd("tc qdisc add dev r-eth1 root netem delay 100ms")` and uncommenting line#44: `net["r"].cmd("tc qdisc add dev r-eth1 root netem delay 100ms loss 2%")`. Test with a loss rate of 5% as well. Include the results in your discussion section and explain what you observe.
 
 
 ## Submission
@@ -241,9 +241,9 @@ Example final structure of your folder:
 
 You're required to submit a project report in PDF format. Please note that I won't accept Word or any other format. The report should contain the following sections:
 
-1. Title Page: Your Inspera candidate number and Project title
+1. Title Page: Your Inspera candidate number and project title
 2. Introduction: Brief explanation of your project
-3. Implementation: Code documentation; explanation of your application with code snippets (Please avoid including the full source code)
+3. Implementation: Code documentation; explanation of your application with code snippets (do not include full source code)
 4. Discussion: Answer the provided questions and include any limitations of your project
 5. References: Mention any sources used
 
@@ -388,7 +388,7 @@ Connection Closes
 
 ### Discussion#4 
 
-To demonstrate how effective your code is, use tc-netem (refer to the lab manual) to simulate packet loss. To do this, modify your simple-topo.py file by commenting out line#43 `net["r"].cmd("tc qdisc add dev r-eth1 root netem delay 100ms")` and uncommenting line#44: `net["r"].cmd("tc qdisc add dev r-eth1 root netem delay 100ms loss 2%")`. Test with a loss rate of 5% as well. Include the results in your discussion section and explain what you observe.
+To demonstrate how effective your code is, use tc-netem (refer to the [lab manual](https://github.com/safiqul/2410/blob/main/docs/netem/mininet-tc-delay.md))) to simulate packet loss. To do this, modify your simple-topo.py file by commenting out line#43 `net["r"].cmd("tc qdisc add dev r-eth1 root netem delay 100ms")` and uncommenting line#44: `net["r"].cmd("tc qdisc add dev r-eth1 root netem delay 100ms loss 2%")`. Test with a loss rate of 5% as well. Include the results in your discussion section and explain what you observe.
 
 Below are example outputs from both the client and server for the netem case with a `2%` loss rate.
 
