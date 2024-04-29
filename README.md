@@ -127,7 +127,7 @@ Table below lists all the available options that you can use to invoke the serve
 
 # Details
 
-A server should read data in chunks of 1000 bytes. For the sake of simplcity, assume 1 KB = 1000 Bytes, and 1 MB = 1000 KB. For each chunk (application data), a sender adds a header before it sends the data over UDP. The header length is 6 bytes and application data is 994 bytes.  A sender therefore sends 994 bytes of data to a receiver, including the custom DRTP header. The header contains a sequence number (packet sequence number), an acknowledgment number (packet acknowledgment number), flags (only 4 bits are used for connection establishments, teardown, and acknowledgment packets), and file size (file size). Filesize is advertised by the sender at the connection establishment phase to tell the receiver the size of the incoming file . The DRTP header looks like this:
+A server should read data in chunks of 994 bytes. For the sake of simplcity, assume 1 KB = 1000 Bytes, and 1 MB = 1000 KB. For each chunk (application data), a sender adds a header before it sends the data over UDP. The header length is 6 bytes and application data is 994 bytes.  A sender therefore sends 1000 bytes of data to a receiver, including the custom DRTP header. The header contains a sequence number (packet sequence number), an acknowledgment number (packet acknowledgment number), flags (only 4 bits are used for connection establishments, teardown, and acknowledgment packets). The DRTP header looks like this:
 
 
 ```
