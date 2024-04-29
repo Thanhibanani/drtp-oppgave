@@ -372,10 +372,10 @@ Connection established
 14:05:32.541091 -- sending ack for the received 6 
 14:05:32.541229 -- packet 7 is received
 14:05:32.541384 -- sending ack for the received 7 
-14:05:32.541472 -- out-of-ourder packet 9 is received
-14:05:32.542064 -- out-of-ourder packet 10 is received
-14:05:32.641781 -- out-of-ourder packet 11 is received
-14:05:32.642411 -- out-of-ourder packet 12 is received
+14:05:32.541472 -- out-of-order packet 9 is received
+14:05:32.542064 -- out-of-order packet 10 is received
+14:05:32.641781 -- out-of-order packet 11 is received
+14:05:32.642411 -- out-of-order packet 12 is received
 14:05:37.648725 -- packet 8 is received
 14:05:37.649343 -- sending ack for the received 8 
 ...
@@ -460,9 +460,9 @@ Connection established
 14:22:57.577169 -- packet 1 is received
 14:22:57.577228 -- sending ack for the received 1 
 14:22:57.577325 -- out-of-ourder packet 3 is received
-14:22:57.577657 -- out-of-ourder packet 4 is received
-14:22:57.577801 -- out-of-ourder packet 5 is received
-14:22:57.678966 -- out-of-ourder packet 6 is received
+14:22:57.577657 -- out-of-order packet 4 is received
+14:22:57.577801 -- out-of-order packet 5 is received
+14:22:57.678966 -- out-of-order packet 6 is received
 14:23:02.683714 -- packet 2 is received
 14:23:02.684470 -- sending ack for the received 2 
 14:23:02.684661 -- packet 3 is received
@@ -474,10 +474,10 @@ Connection established
 14:23:03.294673 -- sending ack for the received 32 
 14:23:03.294828 -- packet 33 is received
 14:23:03.295058 -- sending ack for the received 33 
-14:23:03.295125 -- out-of-ourder packet 35 is received
-14:23:03.295800 -- out-of-ourder packet 36 is received
-14:23:03.395921 -- out-of-ourder packet 37 is received
-14:23:03.396718 -- out-of-ourder packet 38 is received
+14:23:03.295125 -- out-of-order packet 35 is received
+14:23:03.295800 -- out-of-order packet 36 is received
+14:23:03.395921 -- out-of-order packet 37 is received
+14:23:03.396718 -- out-of-order packet 38 is received
 14:23:08.403314 -- packet 34 is received
 14:23:08.404282 -- sending ack for the received 34 
 14:23:08.404497 -- packet 35 is received
